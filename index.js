@@ -38,12 +38,16 @@ const fi = (function() {
     },
 
     find: function(arr, cb = () => {}) {
-      let value
+      if (!(Array.isArray(arr))) {
+        arr = Object.values(arr)
+      }      
 
       for ( val in arr ) {
-        console.log(cb(val))
+        if ( cb(arr[val] === true )) {
+          return arr[val]
+        }
       }
-      return value
+      return undefined
     },
 
     functions: function() {
