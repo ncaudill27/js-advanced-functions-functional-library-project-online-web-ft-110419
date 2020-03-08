@@ -23,13 +23,18 @@ const fi = (function() {
       return mutatedColl
     },
 
-    reduce: function(collection, callback, acc = 0) {
+    reduce: function(collection, callback = () => {}, acc) {
       const newColl = (collection instanceof Array) ? collection.slice() : Object.values(collection)
-      let total = acc
-      for ( let i = 0; i < newColl.length; i++ ) {
-        total = callback(total, newColl[i], newColl)
+      
+      if (!acc) {
+				acc = collection[0]
+				collection = collection.slice(1)
       }
-      return total
+      
+      for ( let i = 0; i < newColl.length; i++ ) {
+        acc = callback(acc, newColl[i], newColl)
+      }
+      return acc
     },
 
     functions: function() {
