@@ -82,22 +82,13 @@ const fi = (function() {
     },
 
     compact: function(arr) {
-      let keepers = []
-      arr = arr.slice()
-
-      for ( let i = 0; i < arr.length; i++ ) {
-        if ((arr[i] != NaN && arr[i] != undefined && arr[i] != null) && arr[i] != false) {
-          keepers.push(arr[i])
-        }
-      }
-      return keepers
+      const badBad = new Set([false, null, 0, "", undefined, NaN])
+      return arr.filter(el => !badBad.has(el))
     },
     
-    functions: function() {
-
-    },
-
-
+    sortBy: function(collection, cb) {
+      
+    }
   }
 })()
 
