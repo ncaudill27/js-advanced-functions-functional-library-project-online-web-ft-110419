@@ -5,9 +5,10 @@ const fi = (function() {
     },
 
     each: function(collection, callback) {
-      for ( elem in collection ) {
-        console.log(collection[elem])
-        callback(elem)
+      if ( Array.isArray(collection) {
+        console.log("array")
+      } else {
+        console.log("object")
       }
       return collection
     },
