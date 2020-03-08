@@ -24,7 +24,7 @@ const fi = (function() {
     },
 
     reduce: function(collection, callback = () => {}, acc) {
-      const newColl = (collection instanceof Array) ? collection.slice() : Object.values(collection)
+      let newColl = (collection instanceof Array) ? collection.slice() : Object.values(collection)
       
       if (!acc) {
 				acc = collection[0]
@@ -35,19 +35,15 @@ const fi = (function() {
         acc = callback(acc, newColl[i], newColl)
       }
       return acc
-      // let collection = c.slice(0)
+    },
 
-			// if (!acc) {
-			// 	acc = collection[0]
-			// 	collection = collection.slice(1)
-			// }
+    find: function(arr, cb = () => {}) {
+      let value
 
-			// let len = collection.length;
-
-			// for (let i = 0; i < len; i++) {
-			// 	acc = callback(acc, collection[i], collection)
-			// }
-			// return acc;
+      for ( val in arr ) {
+        console.log(cb(val))
+      }
+      return value
     },
 
     functions: function() {
