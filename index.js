@@ -28,13 +28,26 @@ const fi = (function() {
       
       if (!acc) {
 				acc = collection[0]
-				collection = collection.slice(1)
+				newColl = collection.slice(1)
       }
       
       for ( let i = 0; i < newColl.length; i++ ) {
         acc = callback(acc, newColl[i], newColl)
       }
       return acc
+      // let collection = c.slice(0)
+
+			// if (!acc) {
+			// 	acc = collection[0]
+			// 	collection = collection.slice(1)
+			// }
+
+			// let len = collection.length;
+
+			// for (let i = 0; i < len; i++) {
+			// 	acc = callback(acc, collection[i], collection)
+			// }
+			// return acc;
     },
 
     functions: function() {
