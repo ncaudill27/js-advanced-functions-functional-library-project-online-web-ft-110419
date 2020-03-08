@@ -42,11 +42,9 @@ const fi = (function() {
         arr = Object.values(arr)
       }      
 
-      for ( val in arr ) {
-        if ( cb(arr[val] === true )) {
-          return arr[val]
-        }
-      }
+      for ( val in arr )
+        if cb(arr[val] return arr[val]
+
       return undefined
     },
 
