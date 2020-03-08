@@ -86,7 +86,9 @@ const fi = (function() {
       arr = arr.slice()
 
       for ( let i = 0; i < arr.length; i++ ) {
-        if (arr[i] != false) keepers.push(arr[i])
+        if ((arr[i] != NaN && arr[i] != undefined && arr[i] != null) && arr[i] != false) {
+          keepers.push(arr[i])
+        }
       }
       return keepers
     },
